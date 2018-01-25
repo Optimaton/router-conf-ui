@@ -1,0 +1,273 @@
+<!Doctype html>
+<html>
+	<head>
+		<title>Asarva</title>
+		<style>
+			body {
+				font-family: helvetica;
+				overflow: hidden;
+			}
+
+		    .logo {
+				position: fixed;
+				width: 200px;
+				height: 70px;
+			}	
+			.searchMenu {
+				position: fixed;
+				top: 200px;
+				left: 0px;
+				height: 100%;
+			}
+			
+			section {
+			  width: 160px;
+			  position: fixed;
+			  top: 100px;
+			  left: 20px;
+			  display: inline-block;
+			}
+			
+			input {
+			  display: block;
+			  opacity: 0;
+			}
+			label {
+			  width: 60px;
+			  height: 30px;
+			  cursor: pointer;
+			  display: inline-block;
+			  position: relative;
+			  background: #383085;
+			  border-radius: 30px;
+			  
+			  transition: background-color 0.4s;
+			  -moz-transition: background-color 0.4s;
+			  -webkit-transition: background-color 0.4s;
+			}
+			label:after {
+			  left: 0;
+			  width: 20px;
+			  height: 20px;
+			  margin: 5px;
+			  content: '';
+			  position: absolute;
+			  background: #FFF;
+			  border-radius: 10px;
+			}
+			input:checked + label {
+			  background: #F44336;
+			}
+			input:checked + label:after {
+			  left: auto;
+			  right: 0;
+			}
+
+			p {
+			  font: normal 8px/40px Arial;
+			  color: #383085;
+			  display: none;
+			  text-transform: uppercase;
+			  letter-spacing: 1px;
+			}
+			input:checked ~ p:nth-of-type(1) {
+			  color: #F44336;
+			  display: block;
+			}
+			input:not(:checked) ~ p:nth-of-type(2) {
+			  display: block;
+			}
+			
+			ul {
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+				width: 150px;
+				text-align: left;
+				
+			}
+			
+			
+
+			li a {
+				display: block;
+				color: #424242;
+				padding: 8px 0 8px 16px;
+				font-family: Helvetica;
+				text-decoration: none;
+				cursor:pointer;
+				
+			}
+
+			/* Change the link color on hover */
+			li a:hover {
+				color: #757575;
+			}
+			
+			.manual-search-content-container {
+				position: absolute;
+				top: 100px;
+				left: 200px;
+				height: 500px;
+				width: 80%;
+				cursor: pointer;
+			}
+			option:hover {
+				background-color: #DDDDDD;
+				color: white;
+			}
+			.auto-search-content-container {
+				position: absolute;
+				top: 100px;
+				left: 200px;
+				height: 500px;
+				width: 80%;
+				overflow-y: scroll;
+				cursor: pointer;
+			}
+			
+			.join {
+				width: 100px;
+				height: 40px;
+				font-family: Helvetica;
+				font-size : 10px;
+				border:none;
+				background-color:#E0E0E0;
+				transition-duration: .25s;
+				box-shadow: 0 1px 1px 0 rgba(0,0,0,0.2), 0 1px 1px 0 rgba(0,0,0,0.19);
+				cursor: pointer;
+				outline: none;
+				
+			}
+			.join:hover {
+				width: 100px;
+				height: 40px;
+				font-family: Helvetica;
+				font-size : 10px;
+				border:none;
+				background-color:#EEEEEE;
+				cursor: pointer;
+				transition: all .25s;
+				box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+				
+			}
+		</style>
+	</head>
+	<body>
+		<pre style="position: absolute; top:20px; right: 20px; color:#383085; font-size: 15px; cursor: pointer; border-bottom: 2px solid #383085;" id="help">HELP</pre>
+		<img src="logo.png" class="logo"><pre style="color:blue">HOME</pre></img>
+		<section>
+				  <input type="checkbox" id="checkbox1" checked/>
+				  <label for="checkbox1"></label> 
+				  <p style="font-family: helvetica; font-size: 15px;">station mode</p><p style="font-family: helvetica; font-size: 15px;">ap MODE</p>
+		</section>
+		<div class="searchMenu">
+			<ul>
+			  <li><a class="manual">Manual Search</a></li>
+			  <li><a class="auto">Automatic Search</a></li>
+			</ul>
+		</div>
+		
+		<div class="manual-search-content-container metro-tile">
+		    <div style="padding: 15px;border-bottom:2px solid #A7A7A7; width: 30%;">
+				<span style="font-size: 20px;font-weight: 1; color: #424242">Manual Search</span>
+				&nbsp&nbsp&nbsp&nbsp<button class="join">JOIN</button>
+			</div><br><br>
+			<form style="background-color: #EEEEEE;" >
+			<table border="0px">
+			<tr></tr><tr></tr>
+			<tr></tr><tr></tr>
+			<tr>
+			<td>SSID</td>
+			<td><input type="text" style="opacity: 100; background-color: #EEEEEE; border: none; border-bottom: 2px solid black; outline:none;" placeholder="Asarva"></td>
+			</tr>
+			<tr>
+			<td>Security</td>
+			<td><select style="opacity: 100; background-color: #EEEEEE; border: none; border-bottom: 2px solid black; outline:none;" placeholder="WEP">
+				<option>WEP</option>
+				<option>WPA</option>
+				<option>WPA2</option>
+			</select></td>
+			</tr>
+			<tr>
+			<td>Password</td>
+			<td><input type="password" style="opacity: 100; background-color: #EEEEEE; border: none; border-bottom: 2px solid black; outline:none;" value="pseudorandomnumber"></td>
+			</tr>
+			<tr></tr>
+			</table>
+			</form>
+		</div>
+		
+		<div class="auto-search-content-container metro-tile">
+		    <div style="padding: 15px;border-bottom:2px solid #A7A7A7; width: 30%;">
+				<span style="font-size: 20px;font-weight: 1; color: #424242">Auto Search</span>
+				&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button class="join">JOIN</button>
+			</div><br><br>
+			<form style="background-color: #EEEEEE;" >
+			<table border="0px">
+			<tr></tr><tr></tr>
+			<tr></tr><tr></tr>
+			<tr>
+			<div style="padding: 18px;">
+				<span style="font-size: 15px;font-weight: 1; color: #424242">Available Networks</span>
+			</div>
+			</tr>
+			<tr>
+			<option style="padding: 15px;font-size: 15px;font-weight: 1; color: #424242">Asarva</option>
+			<option style="padding: 15px;font-size: 15px;font-weight: 1; color: #424242">BVB Wireless</option>
+			<option style="padding: 15px;font-size: 15px;font-weight: 1; color: #424242">Home</option>
+			<option style="padding: 15px;font-size: 15px;font-weight: 1; color: #424242">BSNL</option>
+			<option style="padding: 15px;font-size: 15px;font-weight: 1; color: #424242">Asarva Corp</option>
+			<option style="padding: 15px;font-size: 15px;font-weight: 1; color: #424242">MevaOne</option>
+			<option style="padding: 15px;font-size: 15px;font-weight: 1; color: #424242">McDonalds</option>
+			<option style="padding: 15px;font-size: 15px;font-weight: 1; color: #424242">Cinepolis</option>
+			</tr>
+			</table>
+			</form>
+		</div>
+		
+	
+				<script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+				<script src="tileJs.min.js" type="text/javascript"></script>
+
+		<script>
+			$(document).ready(function(){
+	
+				$(".auto-search-content-container").hide();
+				$(".manual-search-content-container").show();
+				$(".manual").css({"color":"black","border-right":"2px solid black"});
+				$(".manual").on("click",function() {
+					$(".auto-search-content-container").hide();
+					$(this).css({"color":"black","border-right":"2px solid black"});
+					$(".auto").css({"color":"#A7A7A7","border":"none"});
+					$(".manual-search-content-container").show();
+					
+				});
+				$(".auto").on("click",function() {
+					$(".manual-search-content-container").hide();
+					$(this).css({"color":"black","border-right":"2px solid black"});
+					$(".manual").css({"color":"#A7A7A7","border":"none"});
+					$(".auto-search-content-container").show();
+					
+				});
+				
+				
+				$("#checkbox1").on("click",function() {
+				if(!$('#checkbox1').is(':checked')){
+					timeout = setTimeout(goToHome,400);
+				}});
+				$(".logo").on("click",function(){
+					window.location.href = "index.html";
+				});
+				$("#help").on("click",function(){
+					window.location.href = "help.html";
+				});	
+				
+				function goToHome() {
+					window.location.href = "index.html"
+				}
+								
+			});       
+		</script>
+	</body>
+</html>

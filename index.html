@@ -1,0 +1,129 @@
+<!Doctype html>
+<html>
+	<head>
+		<title>Asarva</title>
+		<style>
+			.logo {
+				margin-top: 50px;
+			}
+			.basic,.advanced {
+				width: 200px;
+				height: 40px;
+				font-family: Helvetica;
+				font-size : 100%;
+				border:none;
+				background-color:#E0E0E0;
+				transition-duration: .25s;
+				box-shadow: 0 1px 1px 0 rgba(0,0,0,0.2), 0 1px 1px 0 rgba(0,0,0,0.19);
+				cursor: pointer;
+				outline: none;
+				
+			}
+			.basic:hover,.advanced:hover {
+				width: 200px;
+				height: 40px;
+				font-family: Helvetica;
+				font-size : 100%;
+				border:none;
+				background-color:#EEEEEE;
+				cursor: pointer;
+				transition: all .25s;
+				box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+				
+			}
+			
+			section {
+			  width: 160px;
+			  display: inline-block;
+			}
+			input {
+			  display: block;
+			  opacity: 0;
+			}
+			label {
+			  width: 60px;
+			  height: 30px;
+			  cursor: pointer;
+			  display: inline-block;
+			  position: relative;
+			  background: #383085;
+			  border-radius: 30px;
+			  
+			  transition: background-color 0.4s;
+			  -moz-transition: background-color 0.4s;
+			  -webkit-transition: background-color 0.4s;
+			}
+			label:after {
+			  left: 0;
+			  width: 20px;
+			  height: 20px;
+			  margin: 5px;
+			  content: '';
+			  position: absolute;
+			  background: #FFF;
+			  border-radius: 10px;
+			}
+			input:checked + label {
+			  background: #F44336;
+			}
+			input:checked + label:after {
+			  left: auto;
+			  right: 0;
+			}
+
+			p {
+			  font: normal 8px/40px Arial;
+			  color: #383085;
+			  display: none;
+			  text-transform: uppercase;
+			  letter-spacing: 1px;
+			}
+			input:checked ~ p:nth-of-type(1) {
+			  color: #F44336;
+			  display: block;
+			}
+			input:not(:checked) ~ p:nth-of-type(2) {
+			  display: block;
+			}
+			
+		</style>
+	</head>
+	<body>
+	    
+	    <section>
+		  <input type="checkbox" id="checkbox1" />
+		  <label for="checkbox1"></label> 
+		  <p style="font-family: helvetica; font-size: 15px; cursor:pointer">station mode</p><p style="font-family: helvetica; font-size: 15px; cursor:pointer">ap MODE</p>
+		</section>
+		
+		<pre style="position: absolute; top:20px; right: 20px; color:#383085; font-size: 15px; cursor: pointer; border-bottom: 2px solid #383085;" id="help">HELP</pre>
+		<center><img src="logo.png" class="logo"></img><br>
+		
+		<center><table border="0px" ><tr><td><button class="basic"><span>Basic</span></button></td><td style="padding-left: 40px;"><button class="advanced"><span>Advanced</span></button></td></tr></table></center>
+		
+		<script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+		
+		<script>
+			$(document).ready(function(){
+			    
+				$(".basic").on("click",function(){
+						window.location.href = "basic.html";
+				});
+				$(".advanced").on("click",function(){
+						window.location.href = "advanced.html";
+				});
+				$("#checkbox1").on("click",function() {
+				if($('#checkbox1').is(':checked')){
+					timeout = setTimeout(goToSta,400);
+				}});
+				$("#help").on("click",function(){
+					window.location.href = "help.html";
+				});
+				function goToSta() {
+					window.location.href = "station.html"
+				}
+			});
+		</script>
+		
+	</body>
+</html>
