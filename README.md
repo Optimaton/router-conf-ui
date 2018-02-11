@@ -1,5 +1,5 @@
-# web-conf-ui-sample
-Sample UI Page for Web Configuration Page
+# router-conf-ui
+Sample UI Page for Router Configuration Page
 
 This is a sample for router configuration page.
 The focus here is on minimalistic UI without cluttering the screen and also enchancing user-experience with just jquery.
